@@ -90,33 +90,13 @@
       },
       {
         "box": {
-          "id": "status-set",
-          "maxclass": "newobj",
-          "text": "prepend set",
-          "patching_rect": [515.0, 370.0, 78.0, 22.0]
-        }
-      },
-      {
-        "box": {
-          "id": "title",
-          "maxclass": "comment",
-          "text": "CHORD MARQUEE",
-          "fontsize": 12.0,
-          "fontface": 1,
-          "patching_rect": [30.0, 25.0, 125.0, 20.0],
-          "presentation": 1,
-          "presentation_rect": [12.0, 8.0, 120.0, 20.0]
-        }
-      },
-      {
-        "box": {
           "id": "current-label",
           "maxclass": "comment",
           "text": "CURRENT",
           "fontsize": 9.0,
           "patching_rect": [30.0, 60.0, 70.0, 20.0],
           "presentation": 1,
-          "presentation_rect": [12.0, 32.0, 62.0, 18.0]
+          "presentation_rect": [12.0, 8.0, 80.0, 18.0]
         }
       },
       {
@@ -124,12 +104,12 @@
           "id": "current-display",
           "maxclass": "message",
           "text": "—",
-          "fontsize": 28.0,
+          "fontsize": 32.0,
           "fontface": 1,
           "textjustification": 1,
           "patching_rect": [30.0, 85.0, 210.0, 55.0],
           "presentation": 1,
-          "presentation_rect": [12.0, 50.0, 175.0, 50.0]
+          "presentation_rect": [12.0, 28.0, 195.0, 72.0]
         }
       },
       {
@@ -140,7 +120,7 @@
           "fontsize": 9.0,
           "patching_rect": [260.0, 60.0, 55.0, 20.0],
           "presentation": 1,
-          "presentation_rect": [200.0, 32.0, 45.0, 18.0]
+          "presentation_rect": [219.0, 8.0, 80.0, 18.0]
         }
       },
       {
@@ -148,12 +128,12 @@
           "id": "next-display",
           "maxclass": "message",
           "text": "—",
-          "fontsize": 20.0,
+          "fontsize": 32.0,
           "fontface": 1,
           "textjustification": 1,
           "patching_rect": [260.0, 85.0, 150.0, 55.0],
           "presentation": 1,
-          "presentation_rect": [200.0, 50.0, 125.0, 50.0]
+          "presentation_rect": [219.0, 28.0, 195.0, 72.0]
         }
       },
       {
@@ -165,7 +145,7 @@
           "textjustification": 1,
           "patching_rect": [425.0, 85.0, 100.0, 30.0],
           "presentation": 1,
-          "presentation_rect": [335.0, 62.0, 90.0, 28.0]
+          "presentation_rect": [426.0, 61.0, 76.0, 28.0]
         }
       },
       {
@@ -178,7 +158,7 @@
           "parameter_enable": 0,
           "patching_rect": [545.0, 85.0, 70.0, 25.0],
           "presentation": 1,
-          "presentation_rect": [438.0, 59.0, 62.0, 24.0]
+          "presentation_rect": [428.0, 28.0, 72.0, 24.0]
         }
       },
       {
@@ -187,17 +167,6 @@
           "maxclass": "message",
           "text": "init",
           "patching_rect": [615.0, 330.0, 50.0, 22.0]
-        }
-      },
-      {
-        "box": {
-          "id": "status-display",
-          "maxclass": "message",
-          "text": "Waiting for Live...",
-          "fontsize": 9.0,
-          "patching_rect": [30.0, 165.0, 585.0, 25.0],
-          "presentation": 1,
-          "presentation_rect": [12.0, 106.0, 488.0, 22.0]
         }
       }
     ],
@@ -213,9 +182,7 @@
       {"patchline": {"source": ["engine", 1], "destination": ["next-set", 0]}},
       {"patchline": {"source": ["next-set", 0], "destination": ["next-display", 0]}},
       {"patchline": {"source": ["engine", 2], "destination": ["countdown-set", 0]}},
-      {"patchline": {"source": ["countdown-set", 0], "destination": ["countdown-display", 0]}},
-      {"patchline": {"source": ["engine", 3], "destination": ["status-set", 0]}},
-      {"patchline": {"source": ["status-set", 0], "destination": ["status-display", 0]}}
+      {"patchline": {"source": ["countdown-set", 0], "destination": ["countdown-display", 0]}}
     ],
     "dependency_cache": [
       {
