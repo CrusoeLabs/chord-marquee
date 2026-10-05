@@ -14,8 +14,16 @@ transport, including looping and position jumps.
 
 ## Status
 
-Early development. The first Device View prototype is available in `dist/` and
-is not yet a tested release.
+Early development. A tested Device View prototype is available in `dist/`.
+
+## Install
+
+1. Download `Chord Marquee.amxd` and `chord_marquee.js` from `dist/`.
+2. Keep both files together in the same folder.
+3. Drag `Chord Marquee.amxd` onto a MIDI track in Ableton Live.
+4. Create a MIDI track named `CHORDS` and add named Arrangement clips for the
+   chord changes.
+5. Press **Refresh** after adding, moving, resizing, or renaming chord clips.
 
 ## Development test
 
