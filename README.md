@@ -14,16 +14,17 @@ transport, including looping and position jumps.
 
 ## Status
 
-Early development. The first Device View prototype lives in `src/` and is not
-yet a tested release.
+Early development. The first Device View prototype is available in `dist/` and
+is not yet a tested release.
 
 ## Development test
 
 1. Create a MIDI track named `CHORDS` in Arrangement View.
 2. Add empty MIDI clips and name them with chord symbols.
-3. Drag `src/Chord Marquee.amxd` onto a MIDI track.
-4. Press **Refresh** after changing the chord clips.
-5. Start playback and confirm the current and next chord displays update.
+3. Run `python3 tools/build_amxd.py "src/Chord Marquee.maxpat" "dist/Chord Marquee.amxd"`.
+4. Drag `dist/Chord Marquee.amxd` onto a MIDI track.
+5. Press **Refresh** after changing the chord clips.
+6. Start playback and confirm the current and next chord displays update.
 
 ## Requirements
 
