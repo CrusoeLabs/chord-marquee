@@ -101,15 +101,28 @@
       },
       {
         "box": {
+          "id": "current-panel",
+          "maxclass": "panel",
+          "mode": 0,
+          "rounded": 8,
+          "bgcolor": [0.12, 0.12, 0.12, 1.0],
+          "patching_rect": [30.0, 85.0, 210.0, 130.0],
+          "presentation": 1,
+          "presentation_rect": [12.0, 28.0, 195.0, 130.0]
+        }
+      },
+      {
+        "box": {
           "id": "current-display",
-          "maxclass": "message",
+          "maxclass": "comment",
           "text": "—",
           "fontsize": 38.0,
           "fontface": 1,
           "textjustification": 1,
-          "patching_rect": [30.0, 85.0, 210.0, 55.0],
+          "ignoreclick": 1,
+          "patching_rect": [30.0, 125.0, 210.0, 50.0],
           "presentation": 1,
-          "presentation_rect": [12.0, 28.0, 195.0, 130.0]
+          "presentation_rect": [12.0, 68.0, 195.0, 50.0]
         }
       },
       {
@@ -125,15 +138,28 @@
       },
       {
         "box": {
+          "id": "next-panel",
+          "maxclass": "panel",
+          "mode": 0,
+          "rounded": 8,
+          "bgcolor": [0.12, 0.12, 0.12, 1.0],
+          "patching_rect": [260.0, 85.0, 210.0, 130.0],
+          "presentation": 1,
+          "presentation_rect": [219.0, 28.0, 195.0, 130.0]
+        }
+      },
+      {
+        "box": {
           "id": "next-display",
-          "maxclass": "message",
+          "maxclass": "comment",
           "text": "—",
           "fontsize": 38.0,
           "fontface": 1,
           "textjustification": 1,
-          "patching_rect": [260.0, 85.0, 150.0, 55.0],
+          "ignoreclick": 1,
+          "patching_rect": [260.0, 125.0, 210.0, 50.0],
           "presentation": 1,
-          "presentation_rect": [219.0, 28.0, 195.0, 130.0]
+          "presentation_rect": [219.0, 68.0, 195.0, 50.0]
         }
       },
       {
