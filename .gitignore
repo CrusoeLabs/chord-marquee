@@ -1,0 +1,8 @@
+.DS_Store
+*.als
+*.asd
+*.adv
+*.alp
+dist/*
+!dist/.gitkeep
+
