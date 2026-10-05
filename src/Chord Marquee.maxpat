@@ -103,6 +103,7 @@
         "box": {
           "id": "current-panel",
           "maxclass": "panel",
+          "background": 1,
           "mode": 0,
           "rounded": 8,
           "bgcolor": [0.12, 0.12, 0.12, 1.0],
@@ -140,6 +141,7 @@
         "box": {
           "id": "next-panel",
           "maxclass": "panel",
+          "background": 1,
           "mode": 0,
           "rounded": 8,
           "bgcolor": [0.12, 0.12, 0.12, 1.0],
