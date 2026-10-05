@@ -42,10 +42,10 @@
       },
       {
         "box": {
-          "id": "sel-ready",
+          "id": "ready-trigger",
           "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [110.0, 370.0, 36.0, 22.0]
+          "text": "t b",
+          "patching_rect": [110.0, 370.0, 30.0, 22.0]
         }
       },
       {
@@ -185,7 +185,7 @@
         "box": {
           "id": "refresh-message",
           "maxclass": "message",
-          "text": "refresh",
+          "text": "init",
           "patching_rect": [615.0, 330.0, 50.0, 22.0]
         }
       },
@@ -203,8 +203,8 @@
     ],
     "lines": [
       {"patchline": {"source": ["midi-in", 0], "destination": ["midi-out", 0]}},
-      {"patchline": {"source": ["this-device", 0], "destination": ["sel-ready", 0]}},
-      {"patchline": {"source": ["sel-ready", 0], "destination": ["init-message", 0]}},
+      {"patchline": {"source": ["this-device", 0], "destination": ["ready-trigger", 0]}},
+      {"patchline": {"source": ["ready-trigger", 0], "destination": ["init-message", 0]}},
       {"patchline": {"source": ["init-message", 0], "destination": ["engine", 0]}},
       {"patchline": {"source": ["refresh-button", 0], "destination": ["refresh-message", 0]}},
       {"patchline": {"source": ["refresh-message", 0], "destination": ["engine", 0]}},
@@ -228,4 +228,3 @@
     "autosave": 0
   }
 }
-
