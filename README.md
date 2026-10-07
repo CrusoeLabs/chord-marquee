@@ -14,16 +14,19 @@ transport, including looping and position jumps.
 
 ## Status
 
-Early development. A tested Device View prototype is available in `dist/`.
+Early development. A tested Device View prototype and an initial synchronized
+floating-window build are available in `dist/`.
 
 ## Install
 
-1. Download `Chord Marquee.amxd` and `chord_marquee.js` from `dist/`.
-2. Keep both files together in the same folder.
+1. Download `Chord Marquee.amxd` and both JavaScript files from `dist/`.
+2. Keep all three files together in the same folder.
 3. Drag `Chord Marquee.amxd` onto a MIDI track in Ableton Live.
 4. Create a MIDI track named `CHORDS` and add named Arrangement clips for the
    chord changes.
 5. Press **Refresh** after adding, moving, resizing, or renaming chord clips.
+6. Press **Window** to open the resizable floating chord display; press
+   **Close** to hide it.
 
 ## Development test
 

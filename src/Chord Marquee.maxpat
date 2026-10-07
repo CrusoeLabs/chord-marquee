@@ -196,6 +196,106 @@
           "text": "init",
           "patching_rect": [615.0, 330.0, 50.0, 22.0]
         }
+      },
+      {
+        "box": {
+          "id": "window-button",
+          "maxclass": "live.text",
+          "text": "Window",
+          "texton": "Window",
+          "mode": 0,
+          "parameter_enable": 0,
+          "patching_rect": [545.0, 125.0, 70.0, 25.0],
+          "presentation": 1,
+          "presentation_rect": [428.0, 100.0, 72.0, 24.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-open-message",
+          "maxclass": "newobj",
+          "text": "prepend windowstate",
+          "patching_rect": [615.0, 370.0, 132.0, 22.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-toggle",
+          "maxclass": "toggle",
+          "patching_rect": [665.0, 330.0, 24.0, 24.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-label-select",
+          "maxclass": "newobj",
+          "text": "sel 0 1",
+          "patching_rect": [675.0, 405.0, 48.0, 22.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-label-off",
+          "maxclass": "message",
+          "text": "text Window",
+          "patching_rect": [610.0, 445.0, 78.0, 22.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-label-on",
+          "maxclass": "message",
+          "text": "text Close",
+          "patching_rect": [700.0, 445.0, 70.0, 22.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-current",
+          "maxclass": "newobj",
+          "text": "prepend current",
+          "patching_rect": [245.0, 405.0, 102.0, 22.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-next",
+          "maxclass": "newobj",
+          "text": "prepend next",
+          "patching_rect": [360.0, 405.0, 92.0, 22.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-countdown",
+          "maxclass": "newobj",
+          "text": "prepend countdown",
+          "patching_rect": [465.0, 405.0, 126.0, 22.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-renderer",
+          "maxclass": "newobj",
+          "text": "js chord_marquee_window.js",
+          "patching_rect": [245.0, 445.0, 174.0, 22.0]
+        }
+      },
+      {
+        "box": {
+          "id": "window-canvas",
+          "maxclass": "newobj",
+          "text": "jit.lcd 4 char 800 450",
+          "patching_rect": [245.0, 485.0, 142.0, 22.0]
+        }
+      },
+      {
+        "box": {
+          "id": "floating-window",
+          "maxclass": "newobj",
+          "text": "jit.window chord_marquee @title Chord Marquee @size 800 450 @visible 0 @floating 0",
+          "patching_rect": [245.0, 525.0, 515.0, 22.0]
+        }
       }
     ],
     "lines": [
@@ -210,11 +310,34 @@
       {"patchline": {"source": ["engine", 1], "destination": ["next-set", 0]}},
       {"patchline": {"source": ["next-set", 0], "destination": ["next-display", 0]}},
       {"patchline": {"source": ["engine", 2], "destination": ["countdown-set", 0]}},
-      {"patchline": {"source": ["countdown-set", 0], "destination": ["countdown-display", 0]}}
+      {"patchline": {"source": ["countdown-set", 0], "destination": ["countdown-display", 0]}},
+      {"patchline": {"source": ["window-button", 0], "destination": ["window-toggle", 0]}},
+      {"patchline": {"source": ["window-toggle", 0], "destination": ["window-open-message", 0]}},
+      {"patchline": {"source": ["window-toggle", 0], "destination": ["window-label-select", 0]}},
+      {"patchline": {"source": ["window-label-select", 0], "destination": ["window-label-off", 0]}},
+      {"patchline": {"source": ["window-label-select", 1], "destination": ["window-label-on", 0]}},
+      {"patchline": {"source": ["window-label-off", 0], "destination": ["window-button", 0]}},
+      {"patchline": {"source": ["window-label-on", 0], "destination": ["window-button", 0]}},
+      {"patchline": {"source": ["window-open-message", 0], "destination": ["window-renderer", 0]}},
+      {"patchline": {"source": ["engine", 0], "destination": ["window-current", 0]}},
+      {"patchline": {"source": ["window-current", 0], "destination": ["window-renderer", 0]}},
+      {"patchline": {"source": ["engine", 1], "destination": ["window-next", 0]}},
+      {"patchline": {"source": ["window-next", 0], "destination": ["window-renderer", 0]}},
+      {"patchline": {"source": ["engine", 2], "destination": ["window-countdown", 0]}},
+      {"patchline": {"source": ["window-countdown", 0], "destination": ["window-renderer", 0]}},
+      {"patchline": {"source": ["window-renderer", 0], "destination": ["window-canvas", 0]}},
+      {"patchline": {"source": ["window-renderer", 1], "destination": ["floating-window", 0]}},
+      {"patchline": {"source": ["window-canvas", 0], "destination": ["floating-window", 0]}}
     ],
     "dependency_cache": [
       {
         "name": "chord_marquee.js",
+        "bootpath": ".",
+        "type": "TEXT",
+        "implicit": 1
+      },
+      {
+        "name": "chord_marquee_window.js",
         "bootpath": ".",
         "type": "TEXT",
         "implicit": 1
