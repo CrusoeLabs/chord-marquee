@@ -1,52 +1,54 @@
 # Chord Marquee
 
-Chord Marquee is a free Max for Live device that displays programmed chord
-changes while Ableton Live's Arrangement is playing.
+Chord Marquee is a free Max for Live MIDI Effect that follows named clips on a
+dedicated `CHORDS` track and displays the current chord, the next chord, and the
+number of beats until the change.
 
-The device is planned to provide two synchronized views:
+![Chord Marquee in Ableton Live](docs/images/chord-marquee-v0.1.0.png)
 
-- a compact display in Live's Device View;
-- a large, resizable floating window for practice and performance.
+## Features
 
-Chord changes will be read from named clips on a dedicated MIDI track. The
-current chord, next chord, and time until the next change will follow Live's
-transport, including looping and position jumps.
-
-When Arrangement Loop is enabled, the final chord in the loop treats the chord
-at the loop start as its next chord.
-
-## Status
-
-Early development. A tested Device View prototype and an initial synchronized
-floating-window build are available in `dist/`.
+- compact Current and Next displays in Live's Device View;
+- a large, resizable floating window for practice and performance;
+- automatic updates when chord clips are renamed, moved, resized, added, or
+  removed;
+- transport-aware playback, scrubbing, and position jumps;
+- loop-aware Next display and countdown;
+- a manual Refresh control for reconnecting if needed.
 
 ## Install
 
-1. Download `Chord Marquee.amxd` and both JavaScript files from `dist/`.
-2. Keep all three files together in the same folder.
+1. Download `Chord-Marquee-v0.1.0.zip` from the latest GitHub release.
+2. Extract the ZIP.
 3. Drag `Chord Marquee.amxd` onto a MIDI track in Ableton Live.
 4. Create a MIDI track named `CHORDS` and add named Arrangement clips for the
    chord changes.
-5. Chord clip edits are detected automatically; press **Refresh** to force an
-   immediate rescan if needed.
-6. Press **Window** to open the resizable floating chord display; press
-   **Close** to hide it.
+5. Press **Window** for the resizable performance view; press **Close** to hide
+   it.
 
-## Development test
+The release device is frozen and self-contained. No separate JavaScript files
+are required.
+
+## Development
 
 1. Create a MIDI track named `CHORDS` in Arrangement View.
 2. Add empty MIDI clips and name them with chord symbols.
 3. Run `python3 tools/build_amxd.py "src/Chord Marquee.maxpat" "dist/Chord Marquee.amxd"`.
-4. Drag `dist/Chord Marquee.amxd` onto a MIDI track.
-5. Edit chord clips and confirm the device updates automatically; use
-   **Refresh** to reconnect manually if needed.
-6. Start playback and confirm the current and next chord displays update.
+4. Keep the generated `.amxd` and JavaScript files together while testing.
+
+The build script creates an unfrozen development device. Before publishing a
+release, open it from Live with **Edit in Max**, click **Freeze Device**, and
+save it. A frozen build contains `mdat` sections and works without sidecars.
 
 ## Requirements
 
 - Ableton Live 12
 - Max for Live (included with Live Suite, or available as an add-on for Live
   Standard)
+
+## Version
+
+Current release: **v0.1.0**. See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## License
 

@@ -29,30 +29,29 @@ centered chord labels, headings above the panels, and the beat countdown below
 the Refresh button. The earlier internal title and status row were removed from
 the visible device UI.
 
-An initial synchronized floating window is available from the Device View's
-Window button. It shows the same current chord, next chord, and countdown in a
-large resizable native window. Treat the current build as an early prototype
-rather than a finished v1 release.
+The synchronized floating window is available from the Device View's Window
+button. It shows the same current chord, next chord, and countdown in a large,
+resizable native window. Version 0.1.0 is packaged as a frozen, self-contained
+`.amxd`.
 
 ## User workflow
 
 1. Add `dist/Chord Marquee.amxd` to a MIDI track.
-2. Keep both JavaScript files from `dist/` beside the `.amxd` file.
-3. Create another MIDI track named `CHORDS`.
-4. Add empty MIDI clips in Arrangement View and name them with chord symbols
+2. Create another MIDI track named `CHORDS`.
+3. Add empty MIDI clips in Arrangement View and name them with chord symbols
    such as `Am`, `C`, or `F`.
-5. Clip edits are detected automatically; press Refresh to reconnect manually
+4. Clip edits are detected automatically; press Refresh to reconnect manually
    if needed.
-6. Start playback or move Live's transport to see the display update.
+5. Start playback or move Live's transport to see the display update.
 
 ## Repository map
 
 - `src/Chord Marquee.maxpat` — editable Max patch JSON.
 - `src/chord_marquee.js` — Live API polling and chord-selection logic.
 - `src/chord_marquee_window.js` — floating-window drawing and display state.
-- `dist/Chord Marquee.amxd` — installable Ableton Max MIDI Effect.
-- `dist/chord_marquee.js` and `dist/chord_marquee_window.js` — runtime
-  dependencies; currently distributed beside the device.
+- `dist/Chord Marquee.amxd` — frozen, self-contained Ableton Max MIDI Effect.
+- `dist/chord_marquee.js` and `dist/chord_marquee_window.js` — development
+  sidecars used before freezing; not required by the release device.
 - `tools/build_amxd.py` — packages the Max patch as an AMPF `.amxd` container
   and copies JavaScript dependencies into `dist/`.
 - `docs/PRODUCT.md` — intended v1 scope and distribution plan.
@@ -83,8 +82,8 @@ From the repository root:
 python3 tools/build_amxd.py "src/Chord Marquee.maxpat" "dist/Chord Marquee.amxd"
 ```
 
-After rebuilding, keep the generated `.amxd` and copied JavaScript file
-together when testing or distributing the prototype.
+After rebuilding, keep the generated `.amxd` and copied JavaScript files
+together while testing. Freeze and save the device in Max before distribution.
 
 ## Manual verification
 
@@ -109,8 +108,6 @@ There is no automated Ableton/Max test suite yet.
   not yet expose theme, text-size, or always-on-top controls.
 - Live API observers should handle clip and track edits automatically; Refresh
   remains available as a manual reconnect fallback.
-- The `.amxd` is not yet a self-contained frozen release; both JavaScript files
-  must remain beside it.
 - Only the first track named `CHORDS` is used.
 - Arrangement clips only; Session View is not supported.
 - Overlapping clips and end-of-song/loop behavior need broader testing.
@@ -121,11 +118,7 @@ There is no automated Ableton/Max test suite yet.
 1. Manually verify and refine the synchronized floating window in Ableton Live.
 2. Add theme, text-size, and optional always-on-top controls.
 3. Exercise looping, scrubbing, playback jumps, overlapping clips, and gaps.
-4. Freeze/package a self-contained release device so users can install one
-   `.amxd` without managing separate JavaScript files.
-5. Add a version number, changelog, screenshots or a short demo GIF, and a
-   GitHub Release ZIP.
-6. Publish the free device on MaxforLive.com and announce it to Ableton/Max
+4. Publish the free device on MaxforLive.com and announce it to Ableton/Max
    communities after the release artifact is ready.
 
 ## Git status at handoff
