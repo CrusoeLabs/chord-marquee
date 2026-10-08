@@ -12,6 +12,9 @@ Chord changes will be read from named clips on a dedicated MIDI track. The
 current chord, next chord, and time until the next change will follow Live's
 transport, including looping and position jumps.
 
+When Arrangement Loop is enabled, the final chord in the loop treats the chord
+at the loop start as its next chord.
+
 ## Status
 
 Early development. A tested Device View prototype and an initial synchronized
@@ -24,7 +27,8 @@ floating-window build are available in `dist/`.
 3. Drag `Chord Marquee.amxd` onto a MIDI track in Ableton Live.
 4. Create a MIDI track named `CHORDS` and add named Arrangement clips for the
    chord changes.
-5. Press **Refresh** after adding, moving, resizing, or renaming chord clips.
+5. Chord clip edits are detected automatically; press **Refresh** to force an
+   immediate rescan if needed.
 6. Press **Window** to open the resizable floating chord display; press
    **Close** to hide it.
 
@@ -34,7 +38,8 @@ floating-window build are available in `dist/`.
 2. Add empty MIDI clips and name them with chord symbols.
 3. Run `python3 tools/build_amxd.py "src/Chord Marquee.maxpat" "dist/Chord Marquee.amxd"`.
 4. Drag `dist/Chord Marquee.amxd` onto a MIDI track.
-5. Press **Refresh** after changing the chord clips.
+5. Edit chord clips and confirm the device updates automatically; use
+   **Refresh** to reconnect manually if needed.
 6. Start playback and confirm the current and next chord displays update.
 
 ## Requirements

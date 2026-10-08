@@ -41,7 +41,8 @@ rather than a finished v1 release.
 3. Create another MIDI track named `CHORDS`.
 4. Add empty MIDI clips in Arrangement View and name them with chord symbols
    such as `Am`, `C`, or `F`.
-5. Press Refresh after adding, moving, resizing, or renaming chord clips.
+5. Clip edits are detected automatically; press Refresh to reconnect manually
+   if needed.
 6. Start playback or move Live's transport to see the display update.
 
 ## Repository map
@@ -64,9 +65,12 @@ case-insensitively, equals `CHORDS`. Refresh reads that track's
 `arrangement_clips`, records each clip's name, start time, and end time, and
 sorts the clips by start time.
 
-A Max `Task` polls `live_set current_song_time` every 100 ms. Four outlets
-provide the current chord, next chord, countdown, and internal status. Output is
-suppressed when a value has not changed.
+A Max `Task` polls `live_set current_song_time` every 100 ms. Live API observers
+watch the track list, track names, the `CHORDS` track's Arrangement clip list,
+each chord clip's name, start time, and end time, and Live's Arrangement loop
+settings. At the end of an active loop, Next wraps to the chord active at the
+loop start. Four outlets provide the current chord, next chord, countdown, and
+internal status. Output is suppressed when a value has not changed.
 
 The implementation does not process MIDI or audio and does not detect chords
 automatically. Clip names are the source of truth.
@@ -92,8 +96,10 @@ together when testing or distributing the prototype.
 6. Confirm Current, Next, and the countdown follow the transport.
 7. Resize Device View and confirm both chord panels fill the available height
    without hiding their text.
-8. Rename or move a chord clip, press Refresh, and confirm the display reflects
-   the edit.
+8. Rename, move, or resize a chord clip and confirm the display reflects the
+   edit without pressing Refresh.
+9. Enable Arrangement Loop and confirm the loop's final chord shows the chord at
+   the loop start as Next, with the correct countdown through the wrap.
 
 There is no automated Ableton/Max test suite yet.
 
@@ -101,7 +107,8 @@ There is no automated Ableton/Max test suite yet.
 
 - The floating window needs manual testing across Live/Max platforms and does
   not yet expose theme, text-size, or always-on-top controls.
-- Refresh is manual after editing chord clips.
+- Live API observers should handle clip and track edits automatically; Refresh
+  remains available as a manual reconnect fallback.
 - The `.amxd` is not yet a self-contained frozen release; both JavaScript files
   must remain beside it.
 - Only the first track named `CHORDS` is used.
@@ -114,13 +121,11 @@ There is no automated Ableton/Max test suite yet.
 1. Manually verify and refine the synchronized floating window in Ableton Live.
 2. Add theme, text-size, and optional always-on-top controls.
 3. Exercise looping, scrubbing, playback jumps, overlapping clips, and gaps.
-4. Decide whether clip edits should be observed automatically or continue to
-   require Refresh.
-5. Freeze/package a self-contained release device so users can install one
+4. Freeze/package a self-contained release device so users can install one
    `.amxd` without managing separate JavaScript files.
-6. Add a version number, changelog, screenshots or a short demo GIF, and a
+5. Add a version number, changelog, screenshots or a short demo GIF, and a
    GitHub Release ZIP.
-7. Publish the free device on MaxforLive.com and announce it to Ableton/Max
+6. Publish the free device on MaxforLive.com and announce it to Ableton/Max
    communities after the release artifact is ready.
 
 ## Git status at handoff
